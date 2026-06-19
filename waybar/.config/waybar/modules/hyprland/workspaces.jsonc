@@ -1,0 +1,22 @@
+{
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "active-only": false,
+        "all-outputs": true,
+        "on-click": "activate",
+        "format": "{name} ",
+        "format-icons": {
+            "urgent": "  ",
+            "default": " ",
+            "empty": ""
+        },
+        "window-rewrite": {
+            // no workspace window icons, only numbers
+        },
+        "persistent-workspaces": {
+            "*": 10,
+            "HDMI-A-1": [11, 12],
+            "DP-1": [11,12]
+        }
+    }
+}

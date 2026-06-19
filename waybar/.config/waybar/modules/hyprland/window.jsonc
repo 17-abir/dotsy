@@ -1,0 +1,17 @@
+{
+    "hyprland/window": {
+        "format": "{}",
+        "rewrite": {
+            "^(.*) - Google Chrome$": " Google Chrome",
+            "^(.*) - Visual Studio Code$": "󰨞 Visual Studio Code",
+            "^(.*) - Dolfin$": " Files",
+            "^(.*) - Discord$": "2 Discord",
+            "^Steam$": " Steam",
+            "^Whatsapp$": " Whatsapp",
+            
+            "^(?!(.* - Google Chrome$|.* - Visual Studio Code$|.* - Dolfin$|.* - Discord$|Steam$|Whatsapp$))(.*)$": "󰺛 Howdy..."
+        },
+        "icon": false,
+        "separate-output": true
+    }
+}

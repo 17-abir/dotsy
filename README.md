@@ -11,3 +11,8 @@ add these lines in the bottom of both files:
 auth       optional     pam_gnome_keyring.so
 session    optional     pam_gnome_keyring.so auto_start
 ```
+
+brightness conroll
+```bash
+sudo pacman -S brightnessctl 
+```

@@ -109,5 +109,13 @@ source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:/opt/nvim/bin"
+export PATH="$PATH:/usr/local/go/bin"
+export PATH=$PATH:$HOME/go/bin
+
 fastfetch
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/catppuccin_mocha.omp.json)"
+eval "$(zoxide init zsh)"
+
+# aliases
+alias kc='kubectl'

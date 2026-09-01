@@ -1,0 +1,155 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "accent": "#89b4fa",
+    "selection": "#45475a",
+    "muted": "#585b70",
+    "background": "#1e1e2e",
+    "dark_background": "#161622",
+    "darker_background": "#101019",
+    "lighter_background": "#313244",
+    "foreground": "#cdd6f4",
+    "dark_foreground": "#6c7086",
+    "light_foreground": "#bac2de",
+    "bright_foreground": "#cdd6f4",
+    "red": "#f38ba8",
+    "yellow": "#f9e2af",
+    "orange": "#f6b6ab",
+    "green": "#a6e3a1",
+    "cyan": "#94e2d5",
+    "blue": "#89b4fa",
+    "magenta": "#f5c2e7",
+    "brown": "#7b5b55",
+    "bright_red": "#f38ba8",
+    "bright_yellow": "#f9e2af",
+    "bright_green": "#a6e3a1",
+    "bright_cyan": "#94e2d5",
+    "bright_blue": "#89b4fa",
+    "bright_magenta": "#f5c2e7"
+  },
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground": "p:green",
+    "template": " "
+  },
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "p:blue",
+          "style": "plain",
+          "template": " ",
+          "type": "os"
+        },
+        {
+          "foreground": "p:blue",
+          "style": "plain",
+          "template": "{{.UserName}} ",
+          "type": "session"
+        },
+        {
+          "type": "path",
+          "foreground": "p:bright_magenta",
+          "options": {
+            "folder_icon": " ",
+            "home_icon": " ",
+            "style": "agnoster_short",
+            "max_depth": 2
+          },
+          "style": "plain",
+          "template": "{{ .Path }} "
+        },
+        {
+          "type": "kubectl",
+          "style": "plain",
+          "foreground": "p:blue",
+          "template": "󱃾 {{.Context}}{{if .Namespace}}{{.Namespace}}{{end}} ",
+          "options": {
+            "context_aliases": {
+              "arn:aws:eks:eu-west-1:1234567890:cluster/posh": "posh",
+              "gke_pathao-production-cloud_asia-east1-a_p-stageenv": "stage"
+            },
+            "cluster_aliases": {
+              "arn:aws:eks:eu-west-1:1234567890:cluster/posh": "posh-cluster"
+            }
+          }
+        },
+        {
+          "type": "git",
+          "foreground": "p:green",
+          "options": {
+            "branch_icon": " ",
+            "cherry_pick_icon": " ",
+            "commit_icon": "  ",
+            "fetch_status": false,
+            "fetch_upstream_icon": false,
+            "merge_icon": " ",
+            "no_commits_icon": " ",
+            "rebase_icon": " ",
+            "revert_icon": " ",
+            "tag_icon": " "
+          },
+          "template": "{{ trunc 25 .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ",
+          "style": "plain"
+        },
+        {
+          "type": "status",
+          "style": "plain",
+          "foreground": "p:bright_green",
+          "foreground_templates": [
+            "{{ if .Error }}p:bright_red{{ end }}"
+          ],
+          "template": " ",
+          "options": {
+            "always_enabled": true
+          }
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "type": "prompt",
+      "segments": [
+        {
+          "type": "time",
+          "style": "plain",
+          "foreground": "p:blue",
+          "options": {
+            "time_format": "15:04"
+          }
+        },
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "foreground": "p:bright_green",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}p:bright_red{{ else }}p:bright_green{{ end }}"
+          ],
+          "template": " {{ .FormattedMs }}",
+          "options": {
+            "threshold": 500,
+            "style": "austin",
+            "always_enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "newline": true,
+      "alignment": "left",
+      "segments": [
+        {
+          "style": "plain",
+          "foreground": "p:green",
+          "template": "",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true,
+  "version": 4
+}

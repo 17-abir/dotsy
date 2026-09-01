@@ -2,6 +2,10 @@
 
 PROJECT_DIR="$HOME/pathao-projects"
 
+FOOD="$PROJECT_DIR/food"
+FOODINTERNAL="$PROJECT_DIR/food-internal"
+RESTO="$PROJECT_DIR/resto"
+
 # set current tab title
 kitty @ set-tab-title "main-term"
 
@@ -9,83 +13,83 @@ for arg in "$@"; do
   case "$arg" in
   cms)
     # create tab + first pane
-    kitty @ launch --no-response --type=tab --tab-title "cms-v2" --cwd "$PROJECT_DIR/cms-v2"
+    kitty @ launch --no-response --type=tab --tab-title "cms-v2" --cwd "$FOOD/cms-v2"
 
     # force splits layout in that tab
     kitty @ goto-layout --match title:"cms-v2" grid
 
     # second pane (side-by-side)
-    kitty @ launch --no-response --match title:"cms-v2" --location=vsplit --cwd "$PROJECT_DIR/cms-v2"
+    kitty @ launch --no-response --match title:"cms-v2" --location=vsplit --cwd "$FOOD/cms-v2"
     ;;
   oms)
     # create tab + first pane
-    kitty @ launch --no-response --type=tab --tab-title "oms" --cwd "$PROJECT_DIR/oms"
+    kitty @ launch --no-response --type=tab --tab-title "oms" --cwd "$FOOD/oms"
 
     # force splits layout in that tab
     kitty @ goto-layout --match title:"oms" grid
 
     # second pane (side-by-side)
-    kitty @ launch --no-response --match title:"oms" --location=vsplit --cwd "$PROJECT_DIR/oms"
+    kitty @ launch --no-response --match title:"oms" --location=vsplit --cwd "$FOOD/oms"
     ;;
   lib)
     # create tab + first pane
-    kitty @ launch --no-response --type=tab --tab-title "lib" --cwd "$PROJECT_DIR/lib"
+    kitty @ launch --no-response --type=tab --tab-title "lib" --cwd "$FOODINTERNAL/lib"
 
     # force splits layout in that tab
     kitty @ goto-layout --match title:"lib" grid
 
     # second pane (side-by-side)
-    kitty @ launch --no-response --match title:"lib" --location=vsplit --cwd "$PROJECT_DIR/lib"
+    kitty @ launch --no-response --match title:"lib" --location=vsplit --cwd "$FOODINTERNAL/lib"
     ;;
   registry)
     # create tab + first pane
-    kitty @ launch --no-response --type=tab --tab-title "registry" --cwd "$PROJECT_DIR/registry-v2"
+    kitty @ launch --no-response --type=tab --tab-title "registry" --cwd "$FOOD/registry-v2"
 
     # force splits layout in that tab
     kitty @ goto-layout --match title:"registry" grid
 
     # second pane (side-by-side)
-    kitty @ launch --no-response --match title:"registry" --location=vsplit --cwd "$PROJECT_DIR/registry-v2"
+    kitty @ launch --no-response --match title:"registry" --location=vsplit --cwd "$FOOD/registry-v2"
     ;;
   elasticity)
     # create tab + first pane
-    kitty @ launch --no-response --type=tab --tab-title "elasticity" --cwd "$PROJECT_DIR/elasticity"
+    kitty @ launch --no-response --type=tab --tab-title "elasticity" --cwd "$FOOD/elasticity"
 
     # force splits layout in that tab
     kitty @ goto-layout --match title:"elasticity" grid
 
     # second pane (side-by-side)
-    kitty @ launch --no-response --match title:"elasticity" --location=vsplit --cwd "$PROJECT_DIR/elasticity"
+    kitty @ launch --no-response --match title:"elasticity" --location=vsplit --cwd "$FOOD/elasticity"
     ;;
   resto-core)
     # create tab + first pane
-    kitty @ launch --no-response --type=tab --tab-title "resto-core" --cwd "$PROJECT_DIR/resto-core"
+    kitty @ launch --no-response --type=tab --tab-title "resto-core" --cwd "$RESTO/core"
 
     # force splits layout in that tab
     kitty @ goto-layout --match title:"resto-core" grid
 
     # second pane (side-by-side)
-    kitty @ launch --no-response --match title:"resto-core" --location=vsplit --cwd "$PROJECT_DIR/resto-core"
+    kitty @ launch --no-response --match title:"resto-core" --location=vsplit --cwd "$RESTO/core"
     ;;
   hype)
     # create tab + first pane
-    kitty @ launch --no-response --type=tab --tab-title "hype-v2" --cwd "$PROJECT_DIR/hype-v2"
+    kitty @ launch --no-response --type=tab --tab-title "hype-v2" --cwd "$FOOD/hype-v2"
 
     # force splits layout in that tab
     kitty @ goto-layout --match title:"hype-v2" grid
 
     # second pane (side-by-side)
-    kitty @ launch --no-response --match title:"hype-v2" --location=vsplit --cwd "$PROJECT_DIR/hype-v2"
+    kitty @ launch --no-response --match title:"hype-v2" --location=vsplit --cwd "$FOOD/hype-v2"
     ;;
   aam)
     # create tab + first pane
-    kitty @ launch --no-response --type=tab --tab-title "aam-jonota" --cwd "$PROJECT_DIR/aam-jonota"
+    kitty @ launch --no-response --type=tab --tab-title "aam-jonota" --cwd "$FOOD/aam-jonota"
 
     # force splits layout in that tab
     kitty @ goto-layout --match title:"aam-jonota" grid
 
     # second pane (side-by-side)
-    kitty @ launch --no-response --match title:"aam-jonota" --location=vsplit --cwd "$PROJECT_DIR/aam-jonota"
+    kitty @ launch --no-response --match title:"aam-jonota" --location=vsplit --cwd "$FOOD/aam-jonota"
     ;;
   esac
 done

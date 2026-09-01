@@ -102,20 +102,34 @@ source $ZSH/oh-my-zsh.sh
 # - $ZSH_CUSTOM/aliases.zsh
 # - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:/opt/nvim/bin"
-export PATH="$PATH:/usr/local/go/bin"
-export PATH=$PATH:$HOME/go/bin
-
-fastfetch
-eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/catppuccin_mocha.omp.json)"
-eval "$(zoxide init zsh)"
 
 # aliases
 alias kc='kubectl'
+alias cd='z'
+
+# path
+export PATH="$HOME/.local/bin:$PATH"
+
+# Google Cloud SDK PATH and Shell Completion
+if [ -f ~/google-cloud-sdk/path.zsh.inc ]; then 
+  source ~/google-cloud-sdk/path.zsh.inc 
+fi
+if [ -f ~/google-cloud-sdk/completion.zsh.inc ]; then 
+  source ~/google-cloud-sdk/completion.zsh.inc 
+fi
+
+#fastfetch
+
+_omarchy_omp_sync() {
+  local toml=~/.local/state/omarchy/current/theme/colors.toml
+  local mtime=$(stat -c %Y "$toml" 2>/dev/null) || return
+  [[ "$mtime" == "${_omarchy_omp_mtime:-}" ]] && return
+  ~/.config/ohmyposh/sync-omarchy-palette.sh && _omarchy_omp_mtime=$mtime
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _omarchy_omp_sync
+
+eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/omarchy.omp.json)"
+
+eval "$(zoxide init zsh)"
+

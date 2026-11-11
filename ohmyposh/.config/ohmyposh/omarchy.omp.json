@@ -68,7 +68,7 @@
           "options": {
             "context_aliases": {
               "arn:aws:eks:eu-west-1:1234567890:cluster/posh": "posh",
-              "gke_pathao-production-cloud_asia-east1-a_p-stageenv": "stage"
+              "gke_pathao-staging-cloud_asia-east1-a_stage-1": "stage"
             },
             "cluster_aliases": {
               "arn:aws:eks:eu-west-1:1234567890:cluster/posh": "posh-cluster"

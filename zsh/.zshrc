@@ -106,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 alias kc='kubectl'
 alias cd='z'
-
+alias quickfetch='fastfetch --logo-type kitty --logo ~/pictures/skull.png'
 # path
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -118,16 +118,6 @@ if [ -f ~/google-cloud-sdk/completion.zsh.inc ]; then
   source ~/google-cloud-sdk/completion.zsh.inc 
 fi
 
-#fastfetch
-
-_omarchy_omp_sync() {
-  local toml=~/.local/state/omarchy/current/theme/colors.toml
-  local mtime=$(stat -c %Y "$toml" 2>/dev/null) || return
-  [[ "$mtime" == "${_omarchy_omp_mtime:-}" ]] && return
-  ~/.config/ohmyposh/sync-omarchy-palette.sh && _omarchy_omp_mtime=$mtime
-}
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd _omarchy_omp_sync
 
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/omarchy.omp.json)"
 
